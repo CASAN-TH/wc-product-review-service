@@ -126,13 +126,13 @@ describe('Productreview CRUD routes tests', function () {
                 var resp = res.body;
                 var update = {
                     // name: 'name update'
-                    product_id: 22,
-                    status: "approved",
-                    reviewer: "John Doe",
-                    reviewer_email: "john.doe@example.com",
-                    review: "Nice album!",
-                    rating: 5,
-                    verified: false
+                    product_id: 23,
+                    status: "hold",
+                    reviewer: "John Doe1",
+                    reviewer_email: "john1.doe@example.com",
+                    review: "Nice album1!",
+                    rating: 6,
+                    verified: true
                 }
                 request(app)
                     .put('/api/productreviews/' + resp.data._id)
@@ -144,6 +144,7 @@ describe('Productreview CRUD routes tests', function () {
                             return done(err);
                         }
                         var resp = res.body;
+                        console.log(resp);
                         // assert.equal(resp.data.name, update.name);
                         assert.equal(resp.data.product_id, update.product_id);
                         assert.equal(resp.data.status, update.status);
